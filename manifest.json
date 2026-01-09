@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Chronos Net",
+  "version": "0.1.0",
+  "description": "Monitora e gerencia o tempo gasto em sites",
+  "action": {
+    "default_popup": "public/popup.html"
+  },
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["dist/content.js"]
+    }
+  ],
+  "permissions": ["storage", "tabs"]
+}
