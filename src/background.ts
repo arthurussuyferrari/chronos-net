@@ -21,6 +21,14 @@ chrome.tabs.onUpdated.addListener((_, changeInfo, tab) => {
   }
 });
 
+chrome.runtime.onSuspend.addListener(() => {
+  if (currentDomain && startTime) {
+    const elapsed = Date.now() - startTime;
+    saveTime(currentDomain, elapsed);
+    startTime = Date.now();
+  }
+});
+
 function handleDomainChange(newDomain: string) {
   const now = Date.now();
 

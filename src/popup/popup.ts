@@ -51,6 +51,11 @@ function formatDomain(domain: string): string {
 
 function formatTime(ms: number): string {
   const totalSeconds = Math.floor(ms / 1000);
+
+  if (totalSeconds < 60) {
+    return `${totalSeconds}s`;
+  }
+
   const minutes = Math.floor(totalSeconds / 60);
   const hours = Math.floor(minutes / 60);
 
